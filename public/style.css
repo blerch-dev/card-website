@@ -1,0 +1,111 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+}
+
+header {
+    min-height: 30px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #555;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+}
+
+main > div {
+    padding: 5px;
+}
+
+#game-board {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.card-space, .card-elem, .card-stack, .card-column, .card-back {
+    width: 115px;
+    height: 160px;
+}
+
+.card-elem {
+    border-radius: 10px;
+    background-color: #ccc;
+    position: absolute;
+    z-index: 100;
+    border: 2px solid #444;
+    overflow: hidden;
+    pointer-events: all;
+}
+
+.card-elem.holding {
+    z-index: 101;
+}
+
+.card-elem * {
+    user-select: none;
+    pointer-events: none;
+}
+
+.card-elem .card-back {
+    z-index: 100;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #555;
+    display: none;
+}
+
+.card-elem.down .card-back {
+    display: block;
+}
+
+.card-elem .card-data {
+    display: flex;
+    gap: 3px;
+    padding: 0px 5px;
+    align-items: center;
+}
+
+.card-elem .card-data p {
+    font-size: 24px;
+}
+
+.card-elem .card-data img {
+    height: 24px;
+}
+
+#floating-cards {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    pointer-events: none;
+}
+
+.card-stack, .card-column {
+    border-radius: 10px;
+}
+
+.card-stack:empty, .card-column:empty {
+    border: 2px solid #eee;
+}
